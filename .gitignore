@@ -22,9 +22,5 @@ yarn-error.log
 /.vscode
 /.zed
 
-# Laravel IDE Helper
-_ide_helper.php
-.phpstorm.meta.php
-
 # macOS system files
 .DS_store
