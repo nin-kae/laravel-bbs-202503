@@ -1,0 +1,31 @@
+// resources/sass/app.scss
+
+// Variables
+@use 'variables' as *;
+
+// Fontawesome
+@use '@fortawesome/fontawesome-free/scss/fontawesome';
+
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+body {
+    font-family: Helvetica, "Microsoft YaHei", Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* 头部 */
+.navbar-static-top {
+    border-color: #e7e7e7;
+    background-color: #fff;
+    box-shadow: 0 1px 11px 2px rgba(42, 42, 42, 0.1);
+    border-top: 4px solid #00b5ad;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* 粘性页脚样式 */
+html {
+    position: relative;
+    min-height: 100%;
+}
