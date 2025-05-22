@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'aliases' => [
+        'Captcha' => 'Mews\Captcha\Facades\Captcha',
+    ]
 ];

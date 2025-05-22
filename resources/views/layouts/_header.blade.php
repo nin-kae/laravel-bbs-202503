@@ -27,7 +27,7 @@
                            aria-haspopup="true" aria-expanded="false">
                             <img src="{{ asset('images/logo.jpg') }}"
                                  class="img-responsive img-circle" width="30px" height="30px" alt="">
-                            {{ Auth::user()->name }}
+                            {{ auth()->user()->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="">{{ __('Profile') }}</a>
