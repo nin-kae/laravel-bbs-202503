@@ -9,10 +9,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'LaravelBBS') - Laravel 进阶教程</title>
+    <title>@yield('title', config('app.name'))</title>
 
     <!-- Use vite include styles and scripts. -->
-    @vite(['resources/css/app.css'])
+    @vite(['resources/sass/app.scss', 'resources/js/app/js'])
 
 </head>
 
