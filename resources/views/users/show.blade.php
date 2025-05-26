@@ -9,14 +9,13 @@
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
             <div class="card ">
                 <img class="card-img-top"
-                     src="{{ asset('images/logo.jpg') }}"
+                     src="{{ $user->avatar }}"
                      alt="{{ $user->name }}">
                 <div class="card-body">
                     <h5><strong>{{ __('Profile') }}</strong></h5>
                     <p>{{ $user->introduction }}</p>
                     <hr>
                     <h5><strong>{{ __('Joined on') }}</strong></h5>
-                    // diffForHumans() 是 Laravel 自带的 Carbon 方法 diffForHumans()
                     <p>{{ $user->created_at->diffForHumans() }}</p>
                 </div>
             </div>
