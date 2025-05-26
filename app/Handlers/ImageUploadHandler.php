@@ -22,7 +22,7 @@ class ImageUploadHandler
      * @param UploadedFile $file
      * @param string $folder 存储的文件名称
      * @param string $filePrefix 文件名前缀，通常是模型 ID
-     * @param string $maxWidth 图片最大宽度，默认为 416px
+     * @param ?int $maxWidth 图片最大宽度，默认为 416px
      * @return array|false 返回图片存储路径或 false
      */
     public function save(UploadedFile $file, string $folder, string $filePrefix = '', ?int $maxWidth = null): array|false
@@ -50,9 +50,45 @@ class ImageUploadHandler
         // 将图片移动到我们的目标存储路径中
         $file->move($uploadPath, $filename);
 
+        // 如果传入了最大宽度参数，则对图片进行处理
+        if ($maxWidth && $extension !== 'gif') {
+            $this->reduceSize($uploadPath . '/' . $filename, $maxWidth);
+        }
+
         // http://127.0.0.1:8000/uploads/images/avatars/201709/21/1_1493521050_7BVc9v9ujP.png
         return [
             'path' => config('app.url') . "/$folderName/$filename"
         ];
+    }
+
+    /**
+     * 缩放图片到指定宽度
+     *
+     * @param string $filePath 图片文件的完整路径
+     * @param int $maxWidth 最大宽度
+     * @return void
+     */
+    public function reduceSize(string $filePath, int $maxWidth): void
+    {
+        // 使用所需驱动程序创建图像管理器
+        $manager = new ImageManager(new Driver());
+
+        // 打开图像文件
+        $image = $manager->read($filePath);
+
+        // 调整图像实例的大小
+        // $image->resize(height: $maxWidth);
+
+        // 将图像实例缩放到最大宽度
+        $image->scale($maxWidth);
+
+        // 插入水印
+        // $image->place('images/watermark.png');
+
+        // 对编辑后的图像进行编码
+        // $encoded = $image->toJpg();
+
+        // 保存编码图像
+        $image->save();
     }
 }

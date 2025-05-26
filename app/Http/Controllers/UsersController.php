@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class Userscontroller extends Controller
+class UsersController extends Controller
 {
     /**
      * 显示用户个人中心页面
@@ -56,7 +56,7 @@ class Userscontroller extends Controller
         $data = $request->all();
 
         if ($request->avatar){
-            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+            $result = $uploader->save($request->avatar, 'avatars', $user->id, 416);
             if ($result === false) {
                 return redirect()->back()->withErrors('Image upload failed. Please try again.');
             }
