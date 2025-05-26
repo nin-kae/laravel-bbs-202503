@@ -16,7 +16,8 @@
                     <p>{{ $user->introduction }}</p>
                     <hr>
                     <h5><strong>{{ __('Joined on') }}</strong></h5>
-                    <p>April 01 1999</p>
+                    // diffForHumans() 是 Laravel 自带的 Carbon 方法 diffForHumans()
+                    <p>{{ $user->created_at->diffForHumans() }}</p>
                 </div>
             </div>
         </div>
