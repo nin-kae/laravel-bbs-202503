@@ -2,8 +2,14 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class UserRequest
+ *
+ * 处理用户个人资料更新的验证。
+ */
 class UserRequest extends FormRequest
 {
     /**
