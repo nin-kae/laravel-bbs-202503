@@ -30,4 +30,4 @@ _ide_helper.php
 .DS_store
 
 #User upload files
-/public/uploads/images/avatars
+/public/uploads/images/default-avatar

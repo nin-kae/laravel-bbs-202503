@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTopicRequest;
 use App\Http\Requests\UpdateTopicRequest;
 use App\Models\Topic;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
 
 class TopicsController extends Controller
 {

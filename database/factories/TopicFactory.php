@@ -24,6 +24,7 @@ class TopicFactory extends Factory
         $randomDateTime = $this->faker->dateTimeBetween('-3 years', 'now');
 
         $sentence = $this->faker->sentence();
+
         return [
             'title' => $sentence,
             'body' => $this->faker->paragraph(5),

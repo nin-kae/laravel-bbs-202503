@@ -27,12 +27,12 @@ class ImageUploadHandler
      */
     public function save(UploadedFile $file, string $folder, string $filePrefix = '', ?int $maxWidth = null): array|false
     {
-        // 构建存储的文件夹规则，值如：uploads/images/avatars/201709/21/
+        // 构建存储的文件夹规则，值如：uploads/images/default-avatar/201709/21/
         // 文件夹切割能让查找效率更高。
         $folderName = "uploads/images/$folder/" . date("Ym/d", time());
 
         // 文件具体存储的物理路径，`public_path()` 获取的是 `public` 文件夹的物理路径。
-        // 值如：/home/vagrant/Code/laravel-bbs/public/uploads/images/avatars/201709/21/
+        // 值如：/home/vagrant/Code/laravel-bbs/public/uploads/images/default-avatar/201709/21/
         $uploadPath = public_path() . '/' . $folderName;
 
         // 获取文件的后缀名，因图片从剪贴板里黏贴时后缀名为空，所以此处确保后缀一直存在
