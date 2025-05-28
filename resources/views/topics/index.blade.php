@@ -19,7 +19,7 @@
                             </a>
                             <p class="mb-1">{{ Str::limit($topic->content, 100) }}</p>
                             <small class="text-muted">{{ __('Created at') }}
-                                : {{ $topic->created_at->format('Y-m-d H:i') }}</small>
+                                : {{ $topic->created_at->diffForHumans() }}</small>
                             <div class="mt-2">
                                 <a href="{{ route('topics.show', $topic->id) }}" class="btn btn-primary btn-sm">
                                     {{ __('View') }}
