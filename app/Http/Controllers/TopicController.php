@@ -8,7 +8,7 @@ use App\Models\Topic;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 
-class TopicsController extends Controller
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.

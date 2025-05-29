@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'NIN-KAE';
         $user->email = 'renhuaying0401@gmail.com';
-        $user->avatar = config('app.url') . '/uploads/images/default-avatar/400.jpg';
+        $user->avatar = config('app.url') . '/uploads/images/default-avatars/400.jpg';
         $user->save();
     }
 }

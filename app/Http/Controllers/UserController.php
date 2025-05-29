@@ -9,7 +9,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Except for the 'show' method, all other methods in this controller require authentication.
@@ -69,7 +69,7 @@ class UsersController extends Controller
         $data = $request->all();
 
         if ($request->avatar) {
-            $result = $uploader->save($request->avatar, 'default-avatar', $user->id, 416);
+            $result = $uploader->save($request->avatar, 'avatars', $user->id, 416);
             if ($result === false) {
                 return redirect()->back()->withErrors('Image upload failed. Please try again.');
             }
