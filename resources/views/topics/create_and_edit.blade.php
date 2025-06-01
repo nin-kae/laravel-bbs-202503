@@ -39,9 +39,8 @@
 
                                     <div class="mb-3">
                                         <select class="form-control" name="category_id" required>
-                                            <option value="" hidden disabled selected>
-                                                {{ __('Please select a category.') }}
-                                            </option>
+                                            <option value="" hidden disabled
+                                                    selected>{{ __('Please select a category.') }}</option>
                                             @foreach ($categories as $value)
                                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                             @endforeach
@@ -68,7 +67,7 @@
 @endsection
 
 @section('styles')
-@vite('resources/editor/css/simditor.css')
+    @vite('resources/editor/css/simditor.css')
 @endsection
 
 @section('scripts')
@@ -91,4 +90,4 @@
             });
         }
     </script>
-@stop
+@endsection

@@ -38,6 +38,6 @@
     @vite(['resources/js/app.js'])
 </div>
 
-@yield('styles')
+@yield('scripts')
 </body>
 </html>
