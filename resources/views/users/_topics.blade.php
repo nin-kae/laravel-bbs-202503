@@ -1,4 +1,4 @@
-@if (count($topics))Add commentMore actions
+@if (count($topics))
 
 <ul class="list-group mt-4 border-0">
     @foreach ($topics as $topic)
