@@ -23,6 +23,10 @@ return new class extends Migration
                 'name' => 'Q&A',
                 'description' => 'Be friendly and help each other',
             ],
+            [
+                'name'        => 'Announcements',
+                'description' => 'Site announcements',
+            ],
         ];
 
         DB::table('categories')->insert($categories);
