@@ -51,7 +51,7 @@
                             <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-secondary btn-sm" onclick="return confirm('确定要删除吗？')">
+                                <button type="submit" class="btn btn-outline-secondary btn-sm" onclick="return confirm('Are you sure you want to delete?')">
                                     <i class="far fa-trash-alt"></i> {{ __('Delete') }}
                                 </button>
                             </form>
