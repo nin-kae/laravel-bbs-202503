@@ -28,7 +28,7 @@ class GenerateSlug implements ShouldQueue
      */
     public function handle(): void
     {
-        \Log::info('✅ TestHorizon job 执行了');
+//        \Log::info('✅ GenerateSlug 已执行 for Topic #' . $this->topic->id);
         // 生成 slug
         $slug = rawurlencode(Str::replace(' ', '-', $this->topic->title));
 
