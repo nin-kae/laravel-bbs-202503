@@ -56,3 +56,4 @@ Route::resource('categories', CategoryController::class)->only(['show']);
 
 // 话题上传图片
 Route::post('upload_image', [TopicController::class, 'uploadImage'])->name('topics.upload_image');
+
