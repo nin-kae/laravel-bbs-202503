@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Topic;
+use Illuminate\Support\Str;
 
 class TopicObserver
 {
@@ -24,7 +25,7 @@ class TopicObserver
         // 我们按照查得的日本公司最常见的方式来处理 slug
         // 生成 slug 对 URL 友好，一般是百分比符号数字字母横杠下划线组成，防止URL出现特殊符号导致网页无法识别
         if (!$topic->slug) {
-            $topic->slug = rawurlencode($topic->title);
+            $topic->slug = rawurlencode(Str::replace(' ', '-', $topic->title));
         }
     }
 }

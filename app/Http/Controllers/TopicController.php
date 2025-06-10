@@ -65,14 +65,23 @@ class TopicController extends Controller
         $topic->user()->associate($request->user());
         $topic->save();
 
-        return redirect()->route('topics.show', $topic)->with('success', 'Topic created successfully.');
+        return redirect()->to($topic->link())->with('success', 'Topic created successfully.');
     }
 
     /**
      * Display the specified resource.
+     * 如果主题有 slug，并且它与请求 slug 不匹配，则重定向到主题的链接。
+     *
+     * @param Topic $topic
+     * @param ?null $slug
+     * @return View|RedirectResponse
      */
-    public function show(Topic $topic): View
+    public function show(Topic $topic, $slug = null): View|RedirectResponse
     {
+        if (!empty($topic->slug) && $topic->slug != rawurlencode($slug)) {
+            return redirect($topic->link(), 301);
+        }
+
         return view('topics.show', compact('topic'));
     }
 
@@ -100,7 +109,7 @@ class TopicController extends Controller
 
         $topic->fill($request->validated());
         $topic->save();
-        return redirect()->route('topics.show', $topic)->with('success', 'Topic updated successfully.');
+        return redirect()->to($topic->link())->with('success', 'Topic updated successfully.');
     }
 
     /**
