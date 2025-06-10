@@ -65,7 +65,7 @@ class TopicController extends Controller
         $topic->user()->associate($request->user());
         $topic->save();
 
-        return redirect()->to($topic->link())->with('success', 'Topic created successfully.');
+        return redirect()->to($topic->link())->with('success', 'トピックが正常に作成されました。');
     }
 
     /**
@@ -109,7 +109,7 @@ class TopicController extends Controller
 
         $topic->fill($request->validated());
         $topic->save();
-        return redirect()->to($topic->link())->with('success', 'Topic updated successfully.');
+        return redirect()->to($topic->link())->with('success', 'トピックは正常に更新されました。');
     }
 
     /**
@@ -124,7 +124,7 @@ class TopicController extends Controller
         $this->authorize('destroy', $topic);
         $topic->delete();
 
-        return redirect()->route('topics.index')->with('success', 'Topic deleted successfully.');
+        return redirect()->route('topics.index')->with('success', 'トピックは正常に削除されました。');
     }
 
     /**

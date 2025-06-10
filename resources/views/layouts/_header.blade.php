@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item "><a class="nav-link {{ request()->routeIs('topics.index') ? 'active' : '' }}" href="{{ route('topics.index') }}">话题</a></li>
+                <li class="nav-item "><a class="nav-link {{ request()->routeIs('topics.index') ? 'active' : '' }}" href="{{ route('topics.index') }}">{{ __('Topics') }}</a></li>
                 @if($categories->count())
                     @foreach($categories as $category)
                         <li class="nav-item">
@@ -71,7 +71,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="logout" href="#">
-                                <form action="{{ route('logout') }}" method="POST"  onsubmit="return confirm('Are you sure you want to log out?');">
+                                <form action="{{ route('logout') }}" method="POST"  onsubmit="return confirm('ログアウトしてもよろしいですか?');">
                                     @csrf
                                     <button class="btn btn-block btn-danger" type="submit"
                                             name="button">{{ __('Logout') }}</button>
