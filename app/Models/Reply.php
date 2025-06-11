@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property int $topic_id 话题 ID
@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Reply whereTopicId($value)
  * @method static Builder<static>|Reply whereUpdatedAt($value)
  * @method static Builder<static>|Reply whereUserId($value)
+ * @method static Builder<static>|Reply recent()
  * @mixin \Eloquent
  */
 class Reply extends Model

@@ -38,10 +38,10 @@ class TopicReplied extends Notification
      * @param $notifiable
      * @return array
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toDatabase($notifiable): array
     {
         $topic = $this->reply->topic;
-        $link = $topic->link(['#reply-' . $this->reply->id]);
+        $link = $topic->link(['#reply' . $this->reply->id]);
 
         return [
             'reply_id' => $this->reply->id,
@@ -62,8 +62,6 @@ class TopicReplied extends Notification
      */
     public function toArray(object $notifiable): array
     {
-        return [
-            //
-        ];
+        return $this->toDatabase($notifiable);
     }
 }
