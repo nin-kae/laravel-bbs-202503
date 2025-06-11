@@ -6,6 +6,7 @@ use App\Observers\TopicObserver;
 use Database\Factories\TopicFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -49,6 +50,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Topic recent()
  * @method static Builder<static>|Topic recentReplied()
  * @method static Builder<static>|Topic withOrder(string $order)
+ * @property-read Collection<int, Reply> $replies
+ * @property-read int|null $replies_count
  * @mixin \Eloquent
  */
 

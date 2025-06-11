@@ -46,6 +46,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|User whereIntroduction($value)
  * @property-read Collection<int, Topic> $topics
  * @property-read int|null $topics_count
+ * @property-read Collection<int, Reply> $replies
+ * @property-read int|null $replies_count
  * @mixin \Eloquent
  */
 

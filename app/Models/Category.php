@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static Builder<static>|Category whereId($value)
  * @method static Builder<static>|Category whereName($value)
  * @method static Builder<static>|Category wherePostCount($value)
+ * @method static Builder<static>|Category recent()
  * @mixin \Eloquent
  */
 class Category extends Model
