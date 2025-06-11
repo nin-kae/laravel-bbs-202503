@@ -7,7 +7,6 @@ use Database\Factories\TopicFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
@@ -113,10 +112,10 @@ class Topic extends Model
     /**
      * 确定查询范围以根据指定顺序对主题进行排序。
      *
-     * @param Builder $query
+     * @param $query
      * @return Builder
      */
-    public function scopeRecent(Builder $query): Builder
+    public function scopeRecent($query): Builder
     {
         return $query->orderBy('created_at', 'desc');
     }
