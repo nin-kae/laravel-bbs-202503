@@ -14,8 +14,7 @@ class ReplyObserver
      */
     public function created(Reply $reply): void
     {
-        $reply->topic->reply_count = $reply->topic->replies()->count();
-        $reply->topic->save();
+        $reply->topic->updateReplyCount();
     }
 
     /**

@@ -9,58 +9,14 @@ use Illuminate\Auth\Access\Response;
 class ReplyPolicy
 {
     /**
-     * Determine whether the user can view any models.
+     * 只有回复的作者或主题的作者可以删除回复
+     *
+     * @param User $user
+     * @param Reply $reply
+     * @return bool
      */
-    public function viewAny(User $user): bool
+    public function destroy(User $user, Reply $reply): bool
     {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, Reply $reply): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Reply $reply): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Reply $reply): bool
-    {
-        return $user->id === $reply->user_id;
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Reply $reply): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Reply $reply): bool
-    {
-        return false;
+        return $user->isAuthorOf($reply) || $user->isAuthorOf($reply->topic);
     }
 }

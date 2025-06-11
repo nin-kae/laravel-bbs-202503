@@ -150,4 +150,18 @@ class Topic extends Model
         $params = array_merge([$this->id, $this->slug], $params);
         return route('topics.show', $params);
     }
+
+    /**
+     * 更新主题的回复数
+     *
+     * 此方法计算与主题相关的回复数量
+     * 并相应地更新 reply_count 属性
+     *
+     * @return void
+     */
+    public function updateReplyCount(): void
+    {
+        $this->reply_count = $this->replies->count();
+        $this->save();
+    }
 }
