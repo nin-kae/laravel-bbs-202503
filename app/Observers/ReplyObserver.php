@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Reply;
+use App\Notifications\TopicReplied;
 
 class ReplyObserver
 {
@@ -15,6 +16,9 @@ class ReplyObserver
     public function created(Reply $reply): void
     {
         $reply->topic->updateReplyCount();
+
+        // 通知话题作者有新的回复
+        $reply->topic->user->notify(new TopicReplied($reply));
     }
 
     /**
@@ -29,5 +33,16 @@ class ReplyObserver
     public function creating(Reply $reply): void
     {
         $reply->content = clean($reply->content, 'user_topic_body');
+    }
+
+    /**
+     * Handle the Reply "updated" event.
+     *
+     * @param Reply $reply
+     * @return void
+     */
+    public function deleted(Reply $reply): void
+    {
+        $reply->topic->updateReplyCount();
     }
 }
