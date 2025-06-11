@@ -35,6 +35,8 @@ class Reply extends Model
 {
     use HasFactory;
 
+    protected $table = 'reply';
+
     /**
      * The table associated with the model.
      *
