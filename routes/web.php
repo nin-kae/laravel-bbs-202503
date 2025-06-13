@@ -12,6 +12,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'root'])->name('root');
@@ -66,3 +67,6 @@ Route::resource('replies', ReplyController::class)->only(['store', 'destroy']);
 Route::resource('notifications', NotificationsController::class)
     ->only(['index'])->middleware('auth');
 
+// 模拟登录相关路由
+Route::get('/impersonate/{id}', [UserController::class, 'impersonateUser'])->name('impersonate');
+Route::get('/stop-impersonating', [UserController::class, 'stopImpersonating'])->name('stopImpersonating');

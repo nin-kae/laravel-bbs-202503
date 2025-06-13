@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -78,5 +79,22 @@ class UserController extends Controller
 
         $user->update($data);
         return redirect()->route('users.show', $user)->with('success', 'Profile updated successfully.');
+    }
+
+    public function impersonateUser(int $id, Request $request): RedirectResponse
+    {
+        if (!auth()->user() || !app()->isLocal())  {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $user = User::find($id);
+        if ($user) {
+            auth()->user()->impersonate($user);
+            // 获取传递过来的重定向 URL，如果没有则默认重定向到首页
+            $redirectTo = $request->input('redirect_to', '/');
+            return redirect($redirectTo);
+        }
+
+        return redirect()->back()->with('error', 'User not found.');
     }
 }

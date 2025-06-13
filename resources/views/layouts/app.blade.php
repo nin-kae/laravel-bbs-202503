@@ -14,7 +14,7 @@
 
     <title>@yield('title', config('app.name'))</title>
 
-    <meta name="description" content="@yield('description', 'Pandaria bbs')" />
+    <meta name="description" content="@yield('description', 'Pandaria bbs')"/>
 
     <!-- Use vite include styles and scripts. -->
     @vite(['resources/sass/app.scss', 'resources/js/app/js'])
@@ -39,6 +39,8 @@
     @include('layouts._footer')
     @vite(['resources/js/app.js'])
 </div>
+
+@includeWhen((auth()->check() && app()->isLocal()), 'layouts._impersonate')
 
 @yield('scripts')
 </body>
