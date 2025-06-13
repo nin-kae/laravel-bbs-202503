@@ -10,6 +10,7 @@ use App\Observers\TopicObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Horizon\Horizon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,5 +40,11 @@ class AppServiceProvider extends ServiceProvider
 
         // 使用 Bootstrap 样式的分页器
         Paginator::useBootstrap();
+
+        // 限制 Horizon 访问权限, 只允许 Founder 角色的用户访问
+        Horizon::auth(function ($request) {
+            // 仅允许本地环境访问 Horizon
+            return auth()->user()->hasRole('Founder');
+        });
     }
 }
