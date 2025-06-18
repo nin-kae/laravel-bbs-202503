@@ -55,10 +55,10 @@ class TopicController extends Controller
         }
 
         // 每页显示15个话题进行分页
-        $topics = $query->paginate(15);
+        $topics = $query->paginate(15)->appends(request()->query());
 
         // 返回话题列表视图
-        return view('admin.replies.index', compact('topics'));
+        return view('admin.topics.index', compact('topics'));
     }
 
     /**
