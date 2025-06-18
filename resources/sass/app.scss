@@ -5,21 +5,19 @@
 
 // Fontawesome
 @use '@fortawesome/fontawesome-free/scss/fontawesome';
+@use '@fortawesome/fontawesome-free/scss/solid';
+@use '@fortawesome/fontawesome-free/scss/regular';
+@use '@fortawesome/fontawesome-free/scss/brands';
 
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
 $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
-@import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/solid';
-@import '@fortawesome/fontawesome-free/scss/regular';
-@import '@fortawesome/fontawesome-free/scss/brands';
 
 body {
     font-family: Helvetica, "Microsoft YaHei", Arial, sans-serif;
     font-size: 14px;
 }
 
-/* 头部 */
 .navbar-static-top {
     border-color: #e7e7e7;
     background-color: #fff;
@@ -30,14 +28,12 @@ body {
     margin-top: 0;
 }
 
-/* 粘性页脚样式 */
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
 
@@ -46,7 +42,6 @@ body {
     margin-top: 60px;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #000;
 
@@ -66,7 +61,6 @@ body {
     }
 }
 
-/* 用户注册页面 */
 .register-page, .categories-show-page {
     img.captcha {
         cursor: pointer;
@@ -76,7 +70,6 @@ body {
     }
 }
 
-/* Topic Index Page */
 .topics-index-page, .categories-show-page {
     .topic-list {
         .nav > li > a {
@@ -113,7 +106,6 @@ body {
     }
 }
 
-/* Add container and footer space */
 #app > div.container {
     margin-bottom: 100px;
 }
@@ -135,7 +127,6 @@ body {
     }
 }
 
-/* 回复列表 */
 .topic-reply {
     a {
        color:inherit;
@@ -147,7 +138,6 @@ body {
     }
 }
 
-/* 消息通知 */
 .notification-badge {
 .badge {
     font-size: 12px;
@@ -166,3 +156,8 @@ body {
 .d-flex > .me-3 {
     flex-shrink: 0;
 }
+
+// 最后引入 Tailwind，使用 tw- 前缀，不影响现有样式
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
