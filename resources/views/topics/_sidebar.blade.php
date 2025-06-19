@@ -6,6 +6,7 @@
     </div>
 </div>
 
+@isset($active_users)
 @if (count($active_users))
 <div class="card mt-4">
     <div class="card-body active-users pt-2">
@@ -24,3 +25,4 @@
     </div>
 </div>
 @endif
+@endisset
