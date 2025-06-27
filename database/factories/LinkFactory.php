@@ -46,7 +46,7 @@ class LinkFactory extends Factory
      */
     public function definition(): array
     {
-        // 每次调用取出下一个真实数据Add commentMore actions
+        // 每次调用取出下一个真实数据
         $index = static::$index ?? 0;
         static::$index = $index + 1;
 
